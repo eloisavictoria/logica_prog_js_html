@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+
+    <script>
+
+        function pulaLinha() {
+            document.write("<br><hr><br>");//pula duas linhas e dá destaque para a informação
+        }
+
+        function mostra(frase) {
+            document.write("<big>" + frase + "</big>");//aumenta o tamanho das letras
+            pulaLinha();
+        }
+
+
+        var ano = 2022;
+        mostra("Eu nasci em : " + (ano - 25));
+        mostra("Adriano nasceu em : " + (ano - 26));
+        mostra("Paulo nasceu em : " + (ano - 32));
+
+</script>

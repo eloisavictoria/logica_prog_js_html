@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+<script>
+    function pulaLinha() {
+
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+    }
+
+    //loop responsável por imprimir * em 3 linhas
+    for(var linha = 1;  linha <= 3; linha++){
+
+        for(var coluna = 1; coluna <= 10; coluna++){
+            //loop responsável por escrever 10 * emm uma única linha
+            document.write("*");
+        }
+        pulaLinha();
+    }
+  
+</script>

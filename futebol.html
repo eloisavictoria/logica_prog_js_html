@@ -1,0 +1,38 @@
+<meta charset="UTF-8">
+
+    <script>
+
+        function pulaLinha() {
+            document.write("<br><hr><br>");//pula duas linhas e dá destaque para a informação
+        }
+
+        function mostra(frase) {
+            document.write("<big>" + frase + "</big>");//aumenta o tamanho das letras
+            pulaLinha();
+        }
+
+        /**
+         * return do prompt sempre é um texto
+         * quando usamos as funções de multiplicar ou dividir, ele consegue converter para um número
+         * porém se usarmos a função de soma, ele irá concatenar as informações
+         * por isso é uma boa prática converter os campos caso eles sempre tenham que receber número
+         * pois assim você não terá problemas em relação ao javascript */
+    var vitorias = parseInt(prompt("Entre com o número de vitórias."));
+    var empates = parseInt(prompt("Entre com o número de empates."));
+
+    var pontos = (vitorias * 3) + empates;
+
+    mostra("Os pontos do seu time são: " + pontos);
+
+    if(pontos > 28){
+        mostra("Seu time está melhor que o ano passado.");
+    }
+
+    if(pontos < 28){
+        mostra("Seu time está pior que o ano passado.");
+    }
+    
+    if(pontos == 28){
+        mostra("Seu time está igual ao ano passado.");
+    }
+</script>

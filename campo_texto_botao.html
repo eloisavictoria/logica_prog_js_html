@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+
+<!--campo para entrada-->
+<input/> 
+<!--adiciona botão na tela-->
+<button>Compare com o meu segredo</button>
+
+<script>
+    var segredo = Math.round(Math.random() * 10);
+
+    /*
+    querySelect = pega a tag do html para que você consiga pegar 
+    o valor informado na tag */
+    var input = document.querySelector("input");
+    input.focus();
+
+    function verifica() {
+
+        if(input.value == segredo) {
+
+        alert("Você ACERTOU!");
+        } else {
+
+        alert("Você ERROU!!!!!!!!");
+        }
+
+        input.value=""; //limpa o campo depois que fecha o alert
+        input.focus(); //deixa o cursor no campo de input pro usuário digitar novamente
+    }
+
+    var button = document.querySelector("button");
+
+    button.onclick = verifica;
+
+</script>

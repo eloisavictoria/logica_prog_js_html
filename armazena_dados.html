@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+
+<!--campo para entrada-->
+<input/> 
+<!--adiciona botão na tela-->
+<button>Compare com o meu segredo</button>
+
+<script>
+    var segredos = [5,7,10,2]; //array
+    var tamanho = segredos.length; //pegando o tamanho da array
+    /*
+    querySelect = pega a tag do html para que você consiga pegar 
+    o valor informado na tag */
+    var input = document.querySelector("input");
+    input.focus();
+
+    var achou = false;
+    function verifica() {
+
+        for(var posicao = 0; posicao < tamanho; posicao++){
+            if(input.value == segredos[posicao]) {
+
+            alert("Você ACERTOU!");
+            achou = true;
+            }
+        }
+        
+    if(achou == false){
+        alert("Você ERROU!!!!!!!!");
+    }
+        input.value=""; //limpa o campo depois que fecha o alert
+        input.focus(); //deixa o cursor no campo de input pro usuário digitar novamente
+    }
+
+    var button = document.querySelector("button");
+
+    button.onclick = verifica;
+
+</script>

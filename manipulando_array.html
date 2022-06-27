@@ -1,0 +1,93 @@
+<meta charset="UTF-8">
+
+<!--campo para entrada-->
+<input />
+<!--adiciona botão na tela-->
+<button>Compare com o meu segredo</button>
+
+<script>
+
+    /*função que sorteia números*/
+    function sorteia() {
+        return Math.round(Math.random() * 10);
+    }
+
+    /*função que preenche uma array com a quantidade 
+    de poisções passada por parâmetro. Verifica os números
+    randomicos para que não sejam inseridos repetidos
+    dentro da array */
+    function sorteiaNumeros(quantidade) {
+        var segredos = [];//array
+
+        var numero = 1;
+
+        while (numero <= quantidade) {
+
+            var numeroAleatorio = sorteia();
+
+            if (numeroAleatorio !== 0) {
+                var achou = false;
+
+                for (var posicao = 0; posicao < segredos.length; posicao++) {
+
+                    //se o número existe dentro do array, então ele não entra na array
+                    if (segredos[posicao] == numeroAleatorio) {
+                        achou = true;
+                        break;
+                    }
+                }
+
+                //se número não existe na array, então adiciono ele na array
+                if (achou == false) {
+                    segredos.push(numeroAleatorio);
+                    numero++;//só incremeta se o número não existir dentro da array
+                    /*caso o incremeto fique do lado de fora do if,
+                    ele vai incrementar mesmo quando o número for repetido
+                    assim os campos onde iriam ficar os número repetidos, ficam preenchidos
+                    com zero e o tamanho da array fica maior*/
+                }
+            }
+        }
+
+        return segredos;
+    }
+
+    //push "empurra" os dados pra dentro da array
+    /*mesmo colocando número randomicos, o sistema pode
+    acabar colocando informação duplicada em posições diferentes
+    dentro da array*/
+
+    var segredos = sorteiaNumeros(3);
+    var tamanho = segredos.length;
+    console.log(segredos);
+    /*
+    querySelect = pega a tag do html para que você consiga pegar 
+    o valor informado na tag */
+    var input = document.querySelector("input");
+    input.focus();
+
+    var achou = false;
+
+    function verifica() {
+
+        for (var posicao = 0; posicao < tamanho; posicao++) {
+
+            if (input.value == segredos[posicao]) {
+
+                alert("Você ACERTOU!");
+                achou = true;
+            }
+        }
+
+        if (achou == false) {
+            alert("Você ERROU!!!!!!!!");
+        }
+        input.value = ""; //limpa o campo depois que fecha o alert
+        input.focus(); //deixa o cursor no campo de input pro usuário digitar novamente
+    }
+
+    var button = document.querySelector("button");
+
+    button.onclick = verifica;
+
+</script>
